@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 def minOperations(n):
+    """
+    Calculates minimum operations
+    """
     if n == 1:
         return 0
     dp = [float('inf')] * (n+1)
