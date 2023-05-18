@@ -8,14 +8,14 @@ def makeChange(coins, total):
     """
     Determine the fewest number of coins needed to meet a given amount total.
     """
-    counter = 0
-    if sum <= 0:
+    count = 0
+    if total <= 0:
         return 0
-    sort = sorted(coins, reverse=True)
-    for i in range(len(sort)):
-        while sort[i] <= sum:
-            sum = sum - sort[i]
-            counter += 1
-    if sum == 0:
-        return counter
+    ordered = sorted(coins, reverse=True)
+    for i in range(len(ordered)):
+        while ordered[i] <= total:
+            total = total - ordered[i]
+            count += 1
+    if total == 0:
+        return count
     return -1
