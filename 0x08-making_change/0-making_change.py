@@ -6,13 +6,16 @@ Change comes from within
 
 def makeChange(coins, total):
     """
-    Given a pile of coins of different values,
-    determine the fewest number of coins needed to meet a given amount total
+    Determine the fewest number of coins needed to meet a given amount total.
     """
-    if total <= 0:
+    counter = 0
+    if sum <= 0:
         return 0
-    dp = [0] + [float("inf")] * (total)
-    for coin in coins:
-        for i in range(coin, total + 1):
-            dp[i] = min(dp[i], dp[i - coin] + 1)
-    return dp[-1] if dp[-1] != float("inf") else -1
+    sort = sorted(coins, reverse=True)
+    for i in range(len(sort)):
+        while sort[i] <= sum:
+            sum = sum - sort[i]
+            counter += 1
+    if sum == 0:
+        return counter
+    return -1
